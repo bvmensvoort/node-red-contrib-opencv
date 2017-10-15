@@ -1,0 +1,30 @@
+<script type="text/javascript">
+    RED.nodes.registerType('opencv',{
+        category: 'analysis',
+        color: '#3FADB5',
+        defaults: {
+            name: {
+                value: ""
+	    }
+        },
+        inputs:1,
+        outputs:1,
+        icon: "arrow-in.png",
+        label: function() {
+            return this.name || "opencv";
+        }
+    });
+</script>
+
+<script type="text/x-red" data-template-name="opencv">
+    <div class="form-row">
+        <label for="node-input-name"><i class="icon-tag"></i> Name</label>
+        <input type="text" id="node-input-name" placeholder="Name">
+    </div>
+</script>
+
+<script type="text/x-red" data-help-name="opencv">
+    <p>Node-RED node for OpenCV.</p>
+    <p>Image file buffer and file path are supported as input message.</p>
+    <p>Currently output is only result of face detection.</p>
+</script>
