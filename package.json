@@ -19,6 +19,7 @@
     "url": "git+https://github.com/zuhito/node-red-contrib-opencv.git"
   },
   "keywords": [
+    "node-red",
     "opencv",
     "image recognition",
     "computer vision"
