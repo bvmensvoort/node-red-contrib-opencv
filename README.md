@@ -1,8 +1,8 @@
 # node-red-contrib-opencv
 Node-RED node for OpenCV
 
-This node can detect face, eye, eyeglasses, fullbody and car from image using OpenCV.
-Image file buffer and file path are supported as input message. JSON (coordinate and size of object) and image buffer (original image and red circles of objects) can be selected as output message.
+This node can detect face, eye, eyeglasses, full body and car from image using OpenCV.
+Image file buffer and file path are supported as input message. JSON (coordinates and size of object) and image buffer (original image and red circles of objects) can be selected as output message.
 
 # How to Install
 Only Ubuntu and Raspbian environments are supported.
@@ -22,14 +22,17 @@ Only Ubuntu and Raspbian environments are supported.
 # Creating sample flow
 ## Flow
 file inject node in [node-red-contrib-browser-utils](https://flows.nodered.org/node/node-red-contrib-browser-utils) is useful to test OpenCV node. The simplest flow contains file inject node, OpenCV node and debug node as follow. 
+
 ![flow.png](flow.png)
 
 ## Node property
 You can select a detector and output method on the node property. 
+
 ![property.png](property.png)
 
 ## Run the flow
-After clicking the button of file inject node, you can upload image file and OpenCV node will analyze it. Finally debug tab show the coordinate and size of object. If you select "Image buffer" as output format in the OpenCV node, output image will have red circle of object as follows.
+After clicking the button of file inject node, you can upload image file and OpenCV node will analyze it. Finally debug tab show the coordinate and size of object. If you select "Image buffer" as output format in the OpenCV node, output image will have red circles of objects as follows.
+
 ![lenna.jpg](lenna.jpg)
 
 ## Flow data
