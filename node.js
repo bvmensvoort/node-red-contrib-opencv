@@ -5,8 +5,9 @@ module.exports = function(RED) {
         RED.nodes.createNode(this,config);
         var node = this;
         node.on('input', function(msg) {
+            node.status({fill: "blue", shape: "dot", text: "Analyzing"});
             cv.readImage(msg.payload, function(err, im){
-                var classifier;
+                var classifier = null;
                 if (config.detect === "FACE_CASCADE") {
                     classifier = cv.FACE_CASCADE;
                 } else if (config.detect === "EYE_CASCADE") {
@@ -17,14 +18,13 @@ module.exports = function(RED) {
                     classifier = cv.FULLBODY_CASCADE;
                 } else if (config.detect === "CAR_SIDE_CASCADE") {
                     classifier = cv.CAR_SIDE_CASCADE;
-                } else {
-                    node.error("Unsupported classifier: " + config.detect);
                 }
                 im.detectObject(classifier, {}, function(err, faces){
                     if (!err) {
                         if (config.output === "json") {
                             msg.payload = faces;
                             node.send(msg);
+                            node.status({});
                         } else if (config.output === "buffer") {
                             for (var i=0;i<faces.length; i++){
                                 var x = faces[i]
@@ -32,11 +32,14 @@ module.exports = function(RED) {
                             }
                             msg.payload = im.toBuffer();
                             node.send(msg);
+                            node.status({});
                         } else {
                             node.error("Unsupported output: " + config.output);
+                            node.status({fill: "red", shape: "ring", text: "Error"});
                         }
                     } else {
                         node.error(err);
+                        node.status({fill: "red", shape: "ring", text: "Error"});
                     }
                 });
             });
