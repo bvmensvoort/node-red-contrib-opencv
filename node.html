@@ -3,9 +3,9 @@
         category: 'analysis',
         color: 'white',
         defaults: {
-            name: {
-                value: ""
-	    }
+            detect: { value: "FACE_CASCADE", required: true },
+            output: { value: "json", required: true },
+            name: { value: "" }
         },
         inputs:1,
         outputs:1,
@@ -17,6 +17,23 @@
 </script>
 
 <script type="text/x-red" data-template-name="opencv">
+    <div class="form-row">
+        <label for="node-input-detect"><i class="fa fa-book"></i> Detect</label>
+        <select type="text" id="node-input-detect">
+            <option value="FACE_CASCADE">Face</option>
+            <option value="EYE_CASCADE">Eye</option>
+            <option value="EYEGLASSES_CASCADE">Eyeglasses</option>
+            <option value="FULLBODY_CASCADE">Fullbody</option>
+            <option value="CAR_SIDE_CASCADE">Car side</option>
+        </select>
+    </div>
+    <div class="form-row">
+        <label for="node-input-output"><i class="fa fa-arrow-left"></i> Output</label>
+        <select type="text" id="node-input-output">
+            <option value="json">JSON</option>
+            <option value="buffer">Image buffer</option>
+        </select>
+    </div>
     <div class="form-row">
         <label for="node-input-name"><i class="icon-tag"></i> Name</label>
         <input type="text" id="node-input-name" placeholder="Name">
