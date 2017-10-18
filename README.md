@@ -19,3 +19,20 @@ Only Ubuntu and Raspbian environments are supported.
 (3) Run Node-RED
 - node-red
 
+# Creating sample flow
+## Flow
+file inject node in [node-red-contrib-browser-utils](https://flows.nodered.org/node/node-red-contrib-browser-utils) is useful to test OpenCV node. The simplest flow contains file inject node, OpenCV node and debug node as follow. 
+![flow.png](flow.png)
+
+## Node property
+You can select a detector and output method on the node property. 
+![property.png](property.png)
+
+## Run the flow
+After clicking the button of file inject node, you can upload image file and OpenCV node will analyze it. Finally debug tab show the coordinate and size of object. If you select "Image buffer" as output format in the OpenCV node, output image will have red circle of object as follows.
+![lenna.jpg](lenna.jpg)
+
+## Flow data
+``
+[{"id":"49745f27.e1749","type":"opencv","z":"545d41f7.53ce6","detect":"FACE_CASCADE","output":"json","name":"","x":280,"y":140,"wires":[["6115b477.0fd6cc"]]},{"id":"a4b8e8cd.b0e698","type":"fileinject","z":"545d41f7.53ce6","name":"","x":220,"y":80,"wires":[["49745f27.e1749"]]},{"id":"6115b477.0fd6cc","type":"debug","z":"545d41f7.53ce6","name":"","active":true,"console":"false","complete":"false","x":370,"y":200,"wires":[]}]
+``
