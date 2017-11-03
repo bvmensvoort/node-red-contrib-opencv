@@ -23,17 +23,17 @@ Only Ubuntu and Raspbian environments are supported.
 ## Flow
 file inject node in [node-red-contrib-browser-utils](https://flows.nodered.org/node/node-red-contrib-browser-utils) is useful to test OpenCV node. The simplest flow contains file inject node, OpenCV node and debug node as follow. 
 
-![flow.png](flow.png)
+![flow.png](https://raw.githubusercontent.com/zuhito/node-red-contrib-opencv/master/flow.png)
 
 ## Node property
 You can select a detector and output method on the node property. 
 
-![property.png](property.png)
+![property.png](https://raw.githubusercontent.com/zuhito/node-red-contrib-opencv/master/property.png)
 
 ## Run the flow
 After clicking the button of file inject node, you can upload image file and OpenCV node will analyze it. Finally debug tab show the coordinate and size of object. If you select "Image buffer" as output format in the OpenCV node, output image will have red circles of objects as follows.
 
-![lenna.jpg](lenna.jpg)
+![lenna.jpg](https://raw.githubusercontent.com/zuhito/node-red-contrib-opencv/master/lenna.jpg)
 
 ## Flow data
 ``
