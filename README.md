@@ -20,8 +20,6 @@ Only Ubuntu and Raspbian environments are supported.
 - node-red
 
 # Creating sample flow
-
-## Flow
 file inject node in [node-red-contrib-browser-utils](https://flows.nodered.org/node/node-red-contrib-browser-utils) is useful to test OpenCV node. The simplest flow contains file inject node, OpenCV node and debug node as follow. 
 
 ![flow.png](https://raw.githubusercontent.com/zuhito/node-red-contrib-opencv/master/flow.png)
